@@ -116,3 +116,26 @@ This machine currently fails APK compile because Java is missing (`JAVA_HOME` no
 - `npm run cap:sync`
 - `npm run android:open`
 - `npm run android:apk:debug`
+
+## Deployment (Vercel + Render)
+
+### 1) Deploy frontend on Vercel
+
+- Import this GitHub repo in Vercel.
+- Vercel will use `vercel.json`:
+  - build command: `npm run build:web`
+  - output directory: `www`
+
+### 2) Deploy backend on Render
+
+- In Render, create from Blueprint and point to this repo.
+- Render will use `render.yaml` to create the backend service.
+- Set `ODDS_API_KEY` in Render environment if using live odds.
+
+### 3) Connect frontend to backend
+
+- Open deployed frontend app.
+- In **Konfigirasyon API / Configuration API**:
+  - set `Backend API URL` to your Render service URL
+  - set `User ID` to `demo-user-001`
+  - set `PIN` to `0000`

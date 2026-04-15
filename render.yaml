@@ -1,0 +1,22 @@
+﻿services:
+  - type: web
+    name: nclusion-sportsbook-backend
+    runtime: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    healthCheckPath: /health
+    envVars:
+      - key: BACKEND_PORT
+        value: 10000
+      - key: ODDS_API_KEY
+        sync: false
+      - key: ODDS_API_BASE
+        value: https://api.the-odds-api.com/v4
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: BET_SECRET
+        generateValue: true
+      - key: SETTLEMENT_ADMIN_KEY
+        generateValue: true
