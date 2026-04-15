@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pari Espo Ayiti</string>
+    <string name="title_activity_main">Pari Espo Ayiti</string>
+    <string name="package_name">com.pariespo.ayiti</string>
+    <string name="custom_url_scheme">com.pariespo.ayiti</string>
+</resources>

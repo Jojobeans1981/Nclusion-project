@@ -1,0 +1,240 @@
+﻿:root {
+  --bg: #f4f3ec;
+  --panel: #fffdf6;
+  --ink: #132218;
+  --muted: #5d6b63;
+  --brand: #0f3d2e;
+  --accent: #c98127;
+  --danger: #9d2a2a;
+  --ok: #1f7a3f;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 0 0, #f7e8d1 0, transparent 48%),
+    linear-gradient(160deg, #f4f3ec 0%, #e7ecd9 100%);
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  background: var(--brand);
+  color: #f9fff8;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.1rem;
+}
+
+.subtitle {
+  font-size: 0.84rem;
+  opacity: 0.9;
+  margin-top: 4px;
+  max-width: 320px;
+}
+
+.lang-wrap {
+  display: grid;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+select,
+input,
+button {
+  font: inherit;
+}
+
+select,
+input {
+  border: 1px solid #c1cabf;
+  border-radius: 10px;
+  padding: 8px;
+  min-height: 40px;
+  background: #fffffc;
+}
+
+.status-grid,
+.layout {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.settings {
+  margin: 0 10px;
+}
+
+.settings-form {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.settings-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.84rem;
+}
+
+.status-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card,
+.panel,
+.match-card,
+.bet-card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid #d4ddcf;
+  box-shadow: 0 2px 0 rgba(20, 40, 30, 0.06);
+}
+
+.card,
+.panel {
+  padding: 10px;
+}
+
+.big {
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 1.06rem;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.list {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.match-card,
+.bet-card {
+  padding: 9px;
+}
+
+.teams {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.meta {
+  margin-top: 3px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.odds-row {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.btn {
+  border: none;
+  border-radius: 11px;
+  padding: 9px 10px;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn.ghost {
+  background: #eef5ee;
+  border: 1px solid #c5d0c3;
+}
+
+.btn.odd {
+  background: #f9f2e4;
+  border: 1px solid #e8d1a8;
+  font-size: 0.84rem;
+  padding: 7px 6px;
+}
+
+.btn.odd:focus,
+.btn.primary:focus,
+.btn.ghost:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.bet-form {
+  margin-top: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.bet-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.84rem;
+}
+
+.status-chip {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 0.72rem;
+  background: #ecf2eb;
+  margin-left: 7px;
+}
+
+.status-chip.win {
+  background: #dff1e4;
+  color: var(--ok);
+}
+
+.status-chip.loss {
+  background: #f7e0e0;
+  color: var(--danger);
+}
+
+@media (min-width: 820px) {
+  .layout {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    align-items: start;
+  }
+
+  .status-grid {
+    grid-template-columns: repeat(2, 280px);
+    justify-content: start;
+  }
+}

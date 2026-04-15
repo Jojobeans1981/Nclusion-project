@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="ht">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f3d2e" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon-192.png" />
+    <title>Pari Espo Ayiti</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1 data-i18n="appTitle">Pari Espo Ayiti</h1>
+        <p class="subtitle" data-i18n="appSubtitle">Platfòm paryaj espòtif ki mache menm ak entènèt fèb</p>
+      </div>
+      <div class="lang-wrap">
+        <label for="langSelect" data-i18n="languageLabel">Lang</label>
+        <select id="langSelect" aria-label="language"></select>
+      </div>
+    </header>
+
+    <section class="status-grid">
+      <article class="card card-balance">
+        <h2 data-i18n="balance">Balans</h2>
+        <p id="balanceValue" class="big">HTGN 0</p>
+        <p id="balanceSyncState" class="muted">...</p>
+      </article>
+      <article class="card card-network">
+        <h2 data-i18n="network">Rezo</h2>
+        <p id="networkState" class="big">...</p>
+        <p id="queueState" class="muted">...</p>
+      </article>
+    </section>
+
+    <section class="panel settings">
+      <h2 data-i18n="settingsTitle">Konfigirasyon API</h2>
+      <form id="settingsForm" class="settings-form">
+        <label>
+          <span data-i18n="backendApiLabel">Backend API URL</span>
+          <input id="backendApiInput" type="url" placeholder="http://localhost:4001" />
+        </label>
+        <label>
+          <span data-i18n="userPinLabel">PIN</span>
+          <input id="userPinInput" type="password" autocomplete="off" />
+        </label>
+        <label>
+          <span data-i18n="oddsApiKeyLabel">Odds API Key</span>
+          <input id="oddsApiKeyInput" type="password" autocomplete="off" />
+        </label>
+        <label>
+          <span data-i18n="balanceApiLabel">Balance API URL</span>
+          <input id="balanceApiInput" type="url" placeholder="https://example.com" />
+        </label>
+        <label>
+          <span data-i18n="userIdLabel">User ID</span>
+          <input id="userIdInput" type="text" />
+        </label>
+        <button type="submit" class="btn ghost" data-i18n="saveSettings">Sove Konfigirasyon</button>
+      </form>
+    </section>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel-head">
+          <h2 data-i18n="matches">Match yo</h2>
+          <button id="refreshMatchesBtn" class="btn ghost" data-i18n="refresh">Rafrechi</button>
+        </div>
+        <p class="muted" id="matchMeta"></p>
+        <div id="matchList" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <h2 data-i18n="betSlip">Bòdwo Pari</h2>
+        <form id="betForm" class="bet-form">
+          <label>
+            <span data-i18n="selectedMatch">Match chwazi</span>
+            <input id="selectedMatch" readonly />
+          </label>
+          <label>
+            <span data-i18n="selectedOutcome">Rezilta</span>
+            <input id="selectedOutcome" readonly />
+          </label>
+          <label>
+            <span data-i18n="odds">Kòt</span>
+            <input id="selectedOdds" readonly />
+          </label>
+          <label>
+            <span data-i18n="stake">Miz (HTGN)</span>
+            <input id="stakeInput" type="number" min="1" step="1" inputmode="numeric" required />
+          </label>
+          <button type="submit" class="btn primary" data-i18n="placeBet">Plase Pari</button>
+        </form>
+        <p id="betFormStatus" class="muted"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2 data-i18n="openBets">Pari Ouvè</h2>
+          <button id="syncNowBtn" class="btn ghost" data-i18n="syncNow">Senkronize</button>
+        </div>
+        <div id="openBetsList" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <h2 data-i18n="settledBets">Pari Fini</h2>
+        <div id="settledBetsList" class="list"></div>
+      </section>
+    </main>
+
+    <template id="matchCardTemplate">
+      <article class="match-card">
+        <div class="teams"></div>
+        <div class="meta"></div>
+        <div class="odds-row"></div>
+      </article>
+    </template>
+
+    <template id="betCardTemplate">
+      <article class="bet-card">
+        <div class="row-1"></div>
+        <div class="row-2 muted"></div>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

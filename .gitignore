@@ -1,0 +1,9 @@
+﻿node_modules/
+www/
+backend/data/store.json
+*.log
+npm-debug.log*
+android/.gradle/
+android/local.properties
+android/app/build/
+android/build/
